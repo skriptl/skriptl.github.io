@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看片91-看片91影视资源导航_看片91高清片单与分类索引</title>
+<meta name="description" content="看片91是一个面向影视爱好者的资源导航与片单索引页，整理解读指南、分类片单、观看路径与常见问题，帮助你快速找到想看的内容并了解使用方式。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1f2a'/%3E%3Crect x='13' y='18' width='26' height='28' rx='5' fill='%23ff6b3d'/%3E%3Cpath d='M41 24l11 8-11 8z' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b1f2a;
+  --ink-2:#2b3140;
+  --paper:#f7f4ee;
+  --card:#ffffff;
+  --line:#e4ded3;
+  --accent:#ff6b3d;
+  --accent-2:#ffd166;
+  --muted:#6b6f7b;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,244,238,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 0;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px}
+.brand .mark{width:36px;height:36px;flex:0 0 auto}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{
+  font-size:14px;color:var(--ink-2);padding:7px 12px;border-radius:999px;
+  border:1px solid transparent;transition:.2s;
+}
+.nav-links a:hover{border-color:var(--line);background:#fff}
+.nav-cta{
+  font-size:14px;font-weight:600;background:var(--ink);color:#fff;
+  padding:9px 18px;border-radius:999px;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--accent)}
+
+/* hero */
+.hero{padding:56px 0 44px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+  color:var(--ink-2);background:#fff;border:1px solid var(--line);
+  padding:5px 14px;border-radius:999px;margin-bottom:18px;
+}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+h1{
+  font-size:clamp(34px,6vw,58px);line-height:1.12;letter-spacing:-1px;
+  font-weight:900;margin-bottom:18px;
+}
+h1 .accent{color:var(--accent)}
+.lede{font-size:17px;color:var(--ink-2);max-width:34em;margin-bottom:26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:12px;font-weight:700;font-size:15px;
+  transition:.2s;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(255,107,61,.28)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.hero-art{
+  background:var(--ink);border-radius:24px;padding:22px;
+  display:grid;gap:12px;box-shadow:0 24px 48px rgba(27,31,42,.18);
+}
+.screen{
+  background:linear-gradient(150deg,#333a4c,#20242f);
+  border-radius:14px;aspect-ratio:16/9;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.screen svg{width:64px;height:64px}
+.screen::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(255,209,102,.22),transparent 60%);
+}
+.art-rows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.art-row{background:#2b3140;border-radius:10px;height:12px}
+.art-row.wide{grid-column:1/-1;width:70%;background:#3a4256}
+
+/* stats strip */
+.strip{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:#fff;
+}
+.strip-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.stat{padding:22px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-size:22px;font-weight:800;letter-spacing:-.5px}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* section common */
+section.block{padding:64px 0}
+.sec-head{max-width:640px;margin-bottom:34px}
+.sec-tag{
+  font-size:13px;font-weight:700;color:var(--accent);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;
+}
+h2{font-size:clamp(24px,3.4vw,34px);line-height:1.25;font-weight:800;letter-spacing:-.5px;margin-bottom:12px}
+.sec-head p{color:var(--ink-2);font-size:15.5px}
+
+/* guide cards */
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;display:flex;flex-direction:column;gap:12px;
+  transition:.22s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(27,31,42,.08)}
+.card .ico{
+  width:44px;height:44px;border-radius:12px;background:#fff3ec;
+  display:flex;align-items:center;justify-content:center;
+}
+.card h3{font-size:18px;font-weight:800}
+.card p{font-size:14.5px;color:var(--ink-2);line-height:1.7}
+.card .more{font-size:14px;font-weight:700;color:var(--accent);margin-top:auto}
+
+/* lists */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.article h3{font-size:19px;font-weight:800;margin:22px 0 8px}
+.article h3:first-child{margin-top:0}
+.article p{font-size:15.5px;color:var(--ink-2);margin-bottom:12px}
+.article strong{color:var(--ink);font-weight:700}
+
+.panel{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;
+}
+.panel h3{font-size:17px;font-weight:800;margin-bottom:16px}
+.checklist{list-style:none;display:grid;gap:14px}
+.checklist li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
+.checklist .num{
+  flex:0 0 26px;height:26px;border-radius:8px;background:var(--ink);color:#fff;
+  font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+
+/* category chips */
+.cats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{
+  font-size:14px;padding:8px 16px;border-radius:999px;background:#fff;
+  border:1px solid var(--line);color:var(--ink-2);font-weight:500;
+}
+.chip.hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* FAQ */
+.faq{display:grid;gap:14px;max-width:820px}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:0 22px;transition:.2s;
+}
+details[open]{border-color:#d9cbb8;box-shadow:0 8px 24px rgba(27,31,42,.06)}
+summary{
+  cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:16px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";font-size:20px;font-weight:400;color:var(--accent);flex:0 0 auto;
+}
+details[open] summary::after{content:"–"}
+details p{font-size:15px;color:var(--ink-2);padding-bottom:20px;margin-top:-4px}
+
+/* download */
+.download{
+  background:var(--ink);color:#fff;border-radius:24px;padding:44px;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;
+  margin-top:8px;
+}
+.download h2{color:#fff;margin-bottom:12px}
+.download p{color:#c9ccd6;font-size:15.5px;max-width:34em}
+.dl-actions{display:flex;flex-direction:column;gap:12px}
+.btn-disabled{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--accent-2);color:var(--ink);font-weight:800;font-size:15px;
+  padding:15px 26px;border-radius:12px;pointer-events:none;opacity:.95;
+}
+.dl-note{font-size:13px;color:#9aa0af;text-align:center}
+
+/* footer */
+footer.site{
+  border-top:1px solid var(--line);padding:38px 0 30px;margin-top:56px;
+  background:#fff;
+}
+.foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.foot-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px}
+.foot-brand .mark{width:28px;height:28px}
+.foot-note{font-size:13.5px;color:var(--muted);max-width:38em;margin-top:12px;line-height:1.7}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--ink-2)}
+.foot-links a:hover{color:var(--accent)}
+.copy{font-size:12.5px;color:var(--muted);margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-art{order:-1;max-width:460px}
+  .guides{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .download{grid-template-columns:1fr;padding:32px 26px}
+  .strip-inner{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:640px){
+  body{font-size:15px}
+  .nav{flex-wrap:wrap}
+  .nav-links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .nav-links a{white-space:nowrap}
+  .hero{padding:36px 0 30px}
+  .guides{grid-template-columns:1fr}
+  section.block{padding:44px 0}
+  .stat{padding:18px 14px}
+  .stat b{font-size:19px}
+  h1{letter-spacing:-.5px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="看片91 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1b1f2a"/>
+        <rect x="13" y="18" width="26" height="28" rx="5" fill="#ff6b3d"/>
+        <path d="M41 24l11 8-11 8z" fill="#ffd166"/>
+      </svg>
+      <span>看片91</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#guide">使用指南</a>
+      <a href="#lists">分类片单</a>
+      <a href="#path">观看路径</a>
+      <a href="#faq">常见问题</a>
+      <a href="#download">获取方式</a>
+    </nav>
+    <a href="#guide" class="nav-cta">开始了解</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>影视资源导航 · 片单索引</span>
+        <h1>看片91</h1>
+        <p class="lede">看片91 是一个面向影视爱好者的资源导航与片单索引页。我们把分散的影片信息整理成清晰的使用指南、分类片单与观看路径，让你不再在杂乱入口中反复试错，而是按自己的口味直接进入想看的内容。</p>
+        <div class="hero-actions">
+          <a href="#lists" class="btn btn-primary">浏览分类片单
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#guide" class="btn btn-ghost">查看使用指南</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="screen">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="30" stroke="#ffd166" stroke-width="2" opacity=".35"/>
+            <path d="M26 22l18 10-18 10z" fill="#ff6b3d"/>
+          </svg>
+        </div>
+        <div class="art-rows">
+          <div class="art-row"></div>
+          <div class="art-row"></div>
+          <div class="art-row wide"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <div class="stat"><b>5 类</b><span>片单索引方向</span></div>
+      <div class="stat"><b>4 步</b><span>标准查看路径</span></div>
+      <div class="stat"><b>3 篇</b><span>入门使用指南</span></div>
+      <div class="stat"><b>持续</b><span>分类与说明更新</span></div>
+    </div>
+  </div>
+
+  <!-- GUIDE -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">使用指南</div>
+        <h2>先弄清楚看片91 是用来做什么的</h2>
+        <p>很多人第一次接触看片91 时，最关心的问题不是“有哪些片”，而是“我该怎么用”。下面三篇指南分别回答定位、查找与判断三个问题，读完基本就能顺畅上手。</p>
+      </div>
+      <div class="guides">
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b3d" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+          </div>
+          <h3>定位：它是导航，不是片库</h3>
+          <p>看片91 的核心作用是把影片信息、分类入口和观看说明集中呈现，帮助你快速判断“这部片子是什么、在哪个分类、怎么找到”。它不存储视频文件，页面内容以索引与说明为主。</p>
+          <a href="#path" class="more">了解观看路径 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b3d" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+          </div>
+          <h3>查找：从分类到关键词</h3>
+          <p>推荐先用分类片单缩小范围，再用片名关键词定位。看片91 的分类按题材与观看场景划分，同一部影片通常只归入一个主分类，避免重复入口造成选择困难。</p>
+          <a href="#lists" class="more">进入分类片单 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b3d" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>判断：看信息再决定</h3>
+          <p>每张卡片会标注题材、年份区间与适合的观看场景。看片91 建议先读描述再点入口，这样能减少无效跳转，也更容易找到真正符合当下心情的内容。</p>
+          <a href="#faq" class="more">查看常见问题 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTS + ARTICLE -->
+  <section class="block" id="lists" style="padding-top:0">
+    <div class="wrap split">
+      <div class="article">
+        <div class="sec-tag">分类片单</div>
+        <h2>按口味组织的片单索引</h2>
+        <p>看片91 的片单不追求数量堆砌，而是按“你想怎么看”来分组。同一个晚上，有人想找一部节奏紧凑的类型片，有人只想放一部轻松的背景片，分类的意义就是让选择更省力。</p>
+
+        <h3>类型优先：先定情绪，再定片单</h3>
+        <p>如果你已经知道自己想看动作、悬疑还是喜剧，直接从对应分类进入最快。看片91 在这一层只做筛选，不做过多的主观推荐，把决定权留给访问者。</p>
+
+        <h3>场景优先：时长与观看条件</h3>
+        <p>通勤、午休和完整周末夜晚适合的片长完全不同。片单卡片会提示大致时长区间，方便你在有限时间里挑到能看完的内容，而不是播到一半被迫中断。</p>
+
+        <h3>系列与主题：连续观看更顺</h3>
+        <p>对于系列作品或同一主题的多部影片，看片91 会把它们放在相邻位置，并标注观看顺序建议。按顺序浏览能减少剧情衔接上的困惑，也便于比较不同版本之间的差异。</p>
+
+        <div class="cats" aria-label="分类方向">
+          <span class="chip hot">动作类型</span>
+          <span class="chip">悬疑推理</span>
+          <span class="chip">轻松喜剧</span>
+          <span class="chip">纪录与人文</span>
+          <span class="chip">系列合集</span>
+          <span class="chip">短片与精选</span>
+        </div>
+      </div>
+
+      <aside class="panel" id="path">
+        <h3>标准观看路径：四步走</h3>
+        <ul class="checklist">
+          <li><span class="num">1</span><span><strong>确定需求</strong>：先想清楚是找特定片名，还是随便看看。目标不同，入口也不同。</span></li>
+          <li><span class="num">2</span><span><strong>选择分类</strong>：从看片91 的分类片单中挑一个方向，缩小候选范围。</span></li>
+          <li><span class="num">3</span><span><strong>阅读信息</strong>：看题材、时长与描述，判断是否符合预期，避免盲目点击。</span></li>
+          <li><span class="num">4</span><span><strong>进入内容</strong>：确认后通过对应入口前往，遇到问题可回到常见问题页查找说明。</span></li>
+        </ul>
+        <p style="font-size:14px;color:var(--muted);margin-top:20px;line-height:1.7">这套路径适用于大多数访问场景。熟练之后，你可以跳过前两步，直接用关键词定位。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">常见问题</div>
+        <h2>关于看片91 的常见疑问</h2>
+        <p>以下问题来自访问者最常提出的几类困惑，回答尽量直接，不绕弯子。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>看片91 是视频网站吗？</summary>
+          <p>不是。看片91 定位为影视资源导航与片单索引页，主要提供分类信息、观看路径与使用说明，本身不承载视频文件，也不提供在线播放服务。</p>
+        </details>
+        <details>
+          <summary>为什么有的片单只有文字说明？</summary>
+          <p>索引页的重点是帮助你判断内容是否值得看。部分片单以文字描述与分类标签为主，这是信息组织方式的选择，并不代表内容缺失。</p>
+        </details>
+        <details>
+          <summary>分类之间会不会重复？</summary>
+          <p>看片91 尽量让每部影片只归入一个主分类，减少重复入口。系列作品会在系列合集中单独成组，并在原分类中保留指引，避免访问者来回跳转。</p>
+        </details>
+        <details>
+          <summary>页面信息多久更新一次？</summary>
+          <p>分类与说明会随内容整理进度持续调整。由于是人工维护的索引结构，更新以稳定为先，不追求高频变动，以免影响已有链接的可用性。</p>
+        </details>
+        <details>
+          <summary>遇到入口无法访问怎么办？</summary>
+          <p>建议先回到分类页确认链接是否已调整，再查看常见问题中的说明。看片91 会在页面上标注状态变化，方便你判断是临时问题还是入口已迁移。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="block" id="download" style="padding-top:0">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <div class="sec-tag" style="color:var(--accent-2)">获取方式</div>
+          <h2>把片单索引带到手边</h2>
+          <p>看片91 提供整理好的分类索引与使用说明，方便离线查看或分享给同样在找片的朋友。下载文件目前仍在准备中，正式地址上线后会替换当前入口，页面其他内容不受影响。</p>
+        </div>
+        <div class="dl-actions">
+          <a href="#" class="btn-disabled" data-download-placeholder="true" aria-disabled="true" tabindex="-1" role="button" aria-label="下载看片91 索引，暂未开放">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+            下载
+          </a>
+          <span class="dl-note">入口准备中 · 请稍后访问</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1b1f2a"/>
+            <rect x="13" y="18" width="26" height="28" rx="5" fill="#ff6b3d"/>
+            <path d="M41 24l11 8-11 8z" fill="#ffd166"/>
+          </svg>
+          <span>看片91</span>
+        </div>
+        <p class="foot-note">看片91 提供影视资源导航、分类片单与观看路径说明，帮助访问者更有条理地找到想看的内容。页面信息以索引与说明为主，不承载视频文件。</p>
+      </div>
+      <nav class="foot-links" aria-label="页尾导航">
+        <a href="#guide">使用指南</a>
+        <a href="#lists">分类片单</a>
+        <a href="#path">观看路径</a>
+        <a href="#faq">常见问题</a>
+        <a href="#download">获取方式</a>
+      </nav>
+    </div>
+    <p class="copy">© 2024 看片91 · 影视资源导航与片单索引</p>
+  </div>
+</footer>
+
+</body>
+</html>
