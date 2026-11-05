@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天天美剧-美剧在线观看_天天美剧追剧指南与剧集推荐</title>
+<meta name="description" content="天天美剧是一个聚焦美剧的追剧指南页面，整理天天美剧的剧集分类、热门剧单、更新节奏与观看入口说明，帮助观众快速找到想看的美剧并规划追剧时间。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111a2b'/%3E%3Cpath d='M16 20h32v6H16zM16 32h20v6H16zM16 44h26v6H16z' fill='%23f2b53c'/%3E%3Ccircle cx='48' cy='44' r='8' fill='%23e4573d'/%3E%3Cpath d='M45 40l8 4-8 4z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#111a2b;
+    --ink-2:#1d2a40;
+    --paper:#f6f4ef;
+    --card:#ffffff;
+    --line:#e2ddd2;
+    --gold:#f2b53c;
+    --red:#e4573d;
+    --text:#2a3242;
+    --muted:#6b7484;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;}
+  h1,h2,h3{margin:0;line-height:1.3;color:var(--ink);}
+  p{margin:0 0 1em;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+  .site-header{
+    background:var(--ink);
+    color:#fff;
+    position:sticky;top:0;z-index:20;
+    border-bottom:3px solid var(--gold);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:14px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand svg{display:block;flex:none;}
+  .brand-text{
+    font-size:1.32rem;font-weight:800;letter-spacing:.04em;color:#fff;
+  }
+  .brand-text .dot{color:var(--gold);}
+  nav.main-nav ul{
+    list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap;
+  }
+  nav.main-nav a{
+    text-decoration:none;font-size:.95rem;color:#d8dde7;
+    padding:4px 2px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.main-nav a:hover,nav.main-nav a:focus{color:#fff;border-bottom-color:var(--gold);}
+
+  .hero{
+    background:
+      radial-gradient(1100px 420px at 88% -10%, rgba(242,181,60,.22), transparent 60%),
+      linear-gradient(160deg,#111a2b 0%,#1d2a40 100%);
+    color:#eef1f6;
+    padding:56px 0 64px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:44px;align-items:center;}
+  .hero h1{
+    color:#fff;font-size:clamp(1.9rem,4.2vw,2.9rem);
+    letter-spacing:.02em;margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--gold);
+  }
+  .hero .lead{color:#cdd4e0;font-size:1.02rem;max-width:34em;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:.96rem;
+    padding:12px 24px;border-radius:10px;transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--gold);color:#1a1a1a;}
+  .btn-primary:hover{background:#ffc85a;}
+  .btn-ghost{border-color:#54617a;color:#e3e8f0;}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .hero-figure{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;padding:22px;
+  }
+  .hero-figure .fig-cap{
+    font-size:.82rem;letter-spacing:.12em;color:var(--gold);
+    text-transform:uppercase;margin-bottom:12px;
+  }
+  .hero-figure ul{list-style:none;margin:0;padding:0;}
+  .hero-figure li{
+    display:flex;justify-content:space-between;gap:10px;
+    padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14);
+    font-size:.92rem;color:#dbe1eb;
+  }
+  .hero-figure li:last-child{border-bottom:0;}
+  .hero-figure li span:last-child{color:var(--gold);white-space:nowrap;}
+
+  section{padding:58px 0;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head .eyebrow{
+    font-size:.8rem;letter-spacing:.16em;color:var(--red);
+    font-weight:700;text-transform:uppercase;margin-bottom:8px;
+  }
+  .sec-head h2{font-size:clamp(1.35rem,2.6vw,1.8rem);}
+  .sec-head p{color:var(--muted);margin:.6em 0 0;max-width:52em;}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px;display:flex;flex-direction:column;
+  }
+  .card .tag{
+    align-self:flex-start;font-size:.74rem;font-weight:700;letter-spacing:.06em;
+    background:#fdf2d9;color:#8a6212;border-radius:999px;padding:3px 10px;margin-bottom:12px;
+  }
+  .card h3{font-size:1.1rem;margin-bottom:10px;}
+  .card p{font-size:.93rem;color:#4c5567;margin:0;}
+  .card .meta{margin-top:auto;padding-top:16px;font-size:.82rem;color:var(--muted);}
+
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;}
+  .article-list{list-style:none;margin:0;padding:0;}
+  .article-list li{
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .article-list li:first-child{padding-top:0;}
+  .article-list h3{font-size:1.02rem;margin-bottom:6px;}
+  .article-list p{font-size:.92rem;color:#4c5567;margin:0;}
+
+  .panel{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;
+  }
+  .panel h3{font-size:1.05rem;margin-bottom:14px;}
+  .steps{list-style:none;margin:0;padding:0;counter-reset:s;}
+  .steps li{
+    counter-increment:s;position:relative;padding-left:38px;margin-bottom:16px;
+    font-size:.93rem;color:#4c5567;
+  }
+  .steps li:last-child{margin-bottom:0;}
+  .steps li::before{
+    content:counter(s);position:absolute;left:0;top:1px;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--ink);color:var(--gold);
+    font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  .steps strong{color:var(--ink);}
+
+  .filter-bar{
+    display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;
+  }
+  .chip{
+    font:inherit;font-size:.9rem;cursor:pointer;
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:7px 18px;color:#4c5567;transition:.2s;
+  }
+  .chip:hover{border-color:var(--gold);color:var(--ink);}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .show-item{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;
+  }
+  .show-item .cover{
+    height:96px;border-radius:10px;margin-bottom:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#1d2a40,#33415c);
+  }
+  .show-item:nth-child(2) .cover{background:linear-gradient(135deg,#7a2b1f,#e4573d);}
+  .show-item:nth-child(3) .cover{background:linear-gradient(135deg,#5c460f,#f2b53c);}
+  .show-item:nth-child(4) .cover{background:linear-gradient(135deg,#1f3d33,#3d7a63);}
+  .show-item:nth-child(5) .cover{background:linear-gradient(135deg,#2f2a4a,#5b4f8a);}
+  .show-item:nth-child(6) .cover{background:linear-gradient(135deg,#3a2a1d,#8a6234);}
+  .show-item h3{font-size:1rem;margin-bottom:6px;}
+  .show-item p{font-size:.88rem;color:#4c5567;margin:0 0 10px;}
+  .show-item .kind{font-size:.76rem;color:var(--red);font-weight:700;letter-spacing:.05em;}
+
+  .download-box{
+    background:var(--ink);color:#e6eaf1;border-radius:16px;
+    padding:32px;display:flex;align-items:center;justify-content:space-between;
+    gap:26px;flex-wrap:wrap;
+  }
+  .download-box h2{color:#fff;font-size:1.3rem;margin-bottom:8px;}
+  .download-box p{margin:0;font-size:.93rem;color:#c3cad6;max-width:42em;}
+  .btn-disabled{
+    background:#3a4558;color:#9aa4b5;cursor:not-allowed;
+    pointer-events:none;
+  }
+
+  .faq details{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;margin-bottom:12px;
+  }
+  .faq summary{
+    cursor:pointer;font-weight:700;color:var(--ink);font-size:.98rem;
+    list-style:none;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::before{content:"＋";color:var(--red);margin-right:10px;font-weight:700;}
+  .faq details[open] summary::before{content:"－";}
+  .faq details p{margin:12px 0 0;font-size:.92rem;color:#4c5567;}
+
+  footer{
+    background:#0d1420;color:#9aa4b5;padding:38px 0;margin-top:20px;
+    border-top:3px solid var(--gold);
+  }
+  .footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;}
+  footer .brand-text{font-size:1.1rem;}
+  footer p{margin:0;font-size:.85rem;}
+  footer a{color:#cdd4e0;text-decoration:none;}
+  footer a:hover{color:var(--gold);}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .grid-3,.show-grid{grid-template-columns:1fr 1fr;}
+    .split{grid-template-columns:1fr;gap:30px;}
+  }
+  @media (max-width:620px){
+    body{font-size:15.5px;}
+    .grid-3,.show-grid{grid-template-columns:1fr;}
+    .hero{padding:38px 0 46px;}
+    .hero h1{font-size:1.75rem;}
+    .hero-figure{padding:18px;}
+    section{padding:40px 0;}
+    .header-inner{padding:12px 0;}
+    nav.main-nav ul{gap:16px;}
+    nav.main-nav a{font-size:.88rem;}
+    .download-box{padding:24px;}
+    .btn{padding:11px 20px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="天天美剧 首页">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2a40"/>
+        <path d="M14 18h36v6H14zM14 30h22v6H14zM14 42h28v6H14z" fill="#f2b53c"/>
+        <circle cx="48" cy="44" r="9" fill="#e4573d"/>
+        <path d="M45 39.5l8 4.5-8 4.5z" fill="#ffffff"/>
+      </svg>
+      <span class="brand-text">天天美剧<span class="dot">.</span></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#guide">追剧指南</a></li>
+        <li><a href="#shows">剧集分类</a></li>
+        <li><a href="#rhythm">更新节奏</a></li>
+        <li><a href="#download">资源下载</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>天天美剧</h1>
+        <p class="lead">天天美剧是一个围绕美剧观看与追剧规划整理的信息页面。这里把剧集分类、季播节奏、单集时长和观看入口说明放在一起，让你在打开播放器之前，先弄清楚一部剧从哪里开始看、每周什么时候更新、适合哪种观看方式。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shows">浏览剧集分类</a>
+          <a class="btn btn-ghost" href="#guide">先看追剧指南</a>
+        </div>
+      </div>
+      <aside class="hero-figure" aria-label="追剧速览">
+        <div class="fig-cap">追剧速览</div>
+        <ul>
+          <li><span>常见单集时长</span><span>40–60 分钟</span></li>
+          <li><span>常规季播集数</span><span>8–24 集</span></li>
+          <li><span>主流更新频率</span><span>每周一集</span></li>
+          <li><span>观看顺序</span><span>按季按集</span></li>
+          <li><span>适合的观看方式</span><span>整季或追更</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 追剧指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Guide</div>
+        <h2>天天美剧追剧指南：先弄清三件事</h2>
+        <p>美剧的观看体验很大程度上取决于节奏安排。开始一部新剧前，先确认它的季数、单集长度和更新方式，比盲目点开第一集更省时间。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">起点</span>
+          <h3>从第一季第一集进入</h3>
+          <p>美剧多为连续叙事，人物关系和伏笔跨季累积。除非是单元剧，否则建议按季、按集顺序观看，避免中途插入造成理解断层。</p>
+          <div class="meta">适用：剧情类、悬疑类、群像类</div>
+        </article>
+        <article class="card">
+          <span class="tag">节奏</span>
+          <h3>区分周更与整季放出</h3>
+          <p>传统电视网剧集通常每周更新一集，流媒体剧集常一次性放出整季。追更适合讨论氛围，整季放出适合连续观看。</p>
+          <div class="meta">适用：安排每周观看时间</div>
+        </article>
+        <article class="card">
+          <span class="tag">筛选</span>
+          <h3>按类型而非热度挑剧</h3>
+          <p>热度高不等于合口味。先确定自己想看的是罪案、职场、家庭还是科幻，再在对应分类里比较集数和单集时长。</p>
+          <div class="meta">适用：新观众快速定位</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 剧集分类 + 筛选 -->
+  <section id="shows" style="background:#efece4;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Catalog</div>
+        <h2>天天美剧剧集分类</h2>
+        <p>下面按常见类型给出示例剧单，并标注观看特点。点击类型按钮可筛选，帮助你在天天美剧的剧单里缩小范围。</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="按类型筛选剧集">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-filter="crime" aria-pressed="false">罪案悬疑</button>
+        <button class="chip" type="button" data-filter="work" aria-pressed="false">职场群像</button>
+        <button class="chip" type="button" data-filter="family" aria-pressed="false">家庭生活</button>
+        <button class="chip" type="button" data-filter="scifi" aria-pressed="false">科幻奇幻</button>
+      </div>
+      <div class="show-grid" id="showGrid">
+        <article class="show-item" data-kind="crime">
+          <div class="cover" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="18" cy="18" r="11" fill="none" stroke="#f2b53c" stroke-width="3"/><path d="M26 26l8 8" stroke="#f2b53c" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <span class="kind">罪案悬疑</span>
+          <h3>单元案件 + 主线伏笔</h3>
+          <p>单集解决一个案件，同时用一条贯穿全季的主线推进人物关系。适合每周追更，也适合整季连着看。</p>
+        </article>
+        <article class="show-item" data-kind="crime">
+          <div class="cover" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40"><rect x="8" y="10" width="24" height="20" rx="3" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M14 18h12M14 23h8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="kind">罪案悬疑</span>
+          <h3>慢热型长线推理</h3>
+          <p>前期铺垫较多，信息在后期集中回收。建议一次看两到三集，避免因节奏慢而放弃。</p>
+        </article>
+        <article class="show-item" data-kind="work">
+          <div class="cover" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40"><rect x="7" y="14" width="26" height="18" rx="3" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M16 14v-4h8v4" stroke="#fff" stroke-width="2.5"/></svg>
+          </div>
+          <span class="kind">职场群像</span>
+          <h3>多线并行的人物群戏</h3>
+          <p>围绕一个行业或机构展开，每集有独立事件，季末收束。人物多，前期建议对照角色表观看。</p>
+        </article>
+        <article class="show-item" data-kind="family">
+          <div class="cover" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40"><path d="M20 10l12 8v12H8V18z" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 30v-7h6v7" stroke="#fff" stroke-width="2.5"/></svg>
+          </div>
+          <span class="kind">家庭生活</span>
+          <h3>轻松单集结构</h3>
+          <p>每集故事相对独立，适合碎片时间观看。即使跳看几集，也不影响整体理解。</p>
+        </article>
+        <article class="show-item" data-kind="scifi">
+          <div class="cover" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2.5"/><ellipse cx="20" cy="20" rx="16" ry="6" fill="none" stroke="#fff" stroke-width="2" transform="rotate(-20 20 20)"/></svg>
+          </div>
+          <span class="kind">科幻奇幻</span>
+          <h3>世界观设定优先</h3>
+          <p>设定信息密度高，第一季前几集需要耐心。建议不看剧透，按播出顺序推进。</p>
+        </article>
+        <article class="show-item" data-kind="work">
+          <div class="cover" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40"><path d="M10 30V14l10-5 10 5v16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="M16 30v-8h8v8" stroke="#fff" stroke-width="2.5"/></svg>
+          </div>
+          <span class="kind">职场群像</span>
+          <h3>快节奏对话驱动</h3>
+          <p>台词密度高，信息藏在对话里。适合专注观看，分心容易错过关键情节。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 更新节奏 + 观看顺序 -->
+  <section id="rhythm">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <div class="eyebrow">Rhythm</div>
+          <h2>天天美剧的更新节奏怎么看</h2>
+          <p>美剧的播出安排与国内平台不完全相同，了解几个基本概念，就能自己判断一部剧什么时候能看到下一集。</p>
+        </div>
+        <ul class="article-list">
+          <li>
+            <h3>季与集的关系</h3>
+            <p>一季通常包含 8 到 24 集，集数取决于播出平台与剧集类型。流媒体剧集集数偏少，传统电视网剧集数偏多，单集时长也随之变化。</p>
+          </li>
+          <li>
+            <h3>周更与冬歇</h3>
+            <p>电视网剧集多为每周固定一天更新一集，季中可能插入数周停播。遇到停播不必担心剧集被取消，多数情况下只是排期安排。</p>
+          </li>
+          <li>
+            <h3>续订与完结</h3>
+            <p>剧集是否续订由平台决定，通常在季末或播出期间公布。看到“已续订”意味着后续还有新季，看到“完结”则表示故事收尾。</p>
+          </li>
+          <li>
+            <h3>字幕与配音版本</h3>
+            <p>不同版本的更新时间不同。习惯原声的观众通常能更早看到新集，选择配音版本则需要多等一段时间。</p>
+          </li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>四步安排你的追剧计划</h3>
+        <ol class="steps">
+          <li><strong>确认季数。</strong>先看总季数和是否完结，决定是追更还是整季补看。</li>
+          <li><strong>记下更新日。</strong>把每周更新的固定日期写进日历，避免反复刷新。</li>
+          <li><strong>设定单次观看量。</strong>按单集时长安排，一次一到两集更容易坚持。</li>
+          <li><strong>留出补看窗口。</strong>遇到停播或出差，集中补看比零散跳看更连贯。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载 -->
+  <section id="download">
+    <div class="wrap">
+      <div class="download-box">
+        <div>
+          <h2>天天美剧追剧清单下载</h2>
+          <p>把常看的剧集、类型、更新日和当前进度整理成一份清单，方便每周对照。清单为通用模板，按自己的观看习惯填写即可。</p>
+        </div>
+        <a class="btn btn-disabled" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#efece4;">
+    <div class="wrap" style="max-width:860px;">
+      <div class="sec-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>天天美剧常见问题</h2>
+        <p>关于追剧顺序、更新判断和观看方式的高频疑问，集中说明如下。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>第一次看美剧，应该从哪部开始？</summary>
+          <p>按自己的兴趣类型选一部单集结构清晰的剧集入手更稳妥。单元剧每集独立，即使错过一集也不影响理解，适合建立观看习惯后再转向连续叙事的剧集。</p>
+        </details>
+        <details>
+          <summary>天天美剧页面会直接提供播放吗？</summary>
+          <p>本页是追剧信息与剧单整理页面，主要提供分类、节奏说明和观看建议，不承载播放功能。具体的观看渠道请以你使用的平台为准。</p>
+        </details>
+        <details>
+          <summary>为什么有的剧一季只有八集？</summary>
+          <p>集数由制作方与播出平台决定。流媒体平台常采用短季模式，节奏紧凑、制作周期相对可控；传统电视网则倾向长季，便于拉长播出周期。</p>
+        </details>
+        <details>
+          <summary>剧集停播几周是取消了吗？</summary>
+          <p>不一定。停播多为排期调整，比如避开假期或大型赛事。判断是否取消，应看平台是否发布正式的续订或取消公告。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <span class="brand-text">天天美剧<span style="color:#f2b53c;">.</span></span>
+      <p style="margin-top:8px;">追剧信息与剧单整理 · 内容以页面说明为准</p>
+    </div>
+    <p>
+      <a href="#guide">追剧指南</a> ·
+      <a href="#shows">剧集分类</a> ·
+      <a href="#rhythm">更新节奏</a> ·
+      <a href="#faq">常见问题</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var chips = document.querySelectorAll('.chip');
+    var items = document.querySelectorAll('#showGrid .show-item');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var kind = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+        items.forEach(function (item) {
+          var show = (kind === 'all') || item.getAttribute('data-kind') === kind;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
